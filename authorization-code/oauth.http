@@ -1,0 +1,18 @@
+#1、浏览器： http://localhost:8080/oauth/authorize?client_id=password_auth_mode&response_type=code
+#2、回调:http://localhost:8081/callback?code=oaDzfX
+#3、获取token
+POST http://localhost:8080/oauth/token?code=oaDzfX&grant_type=authorization_code&client_id=password_auth_mode&client_secret=123456&redirect_uri=http://localhost:9001/callback
+Content-Type: application/json
+###
+#4、带上access token就可以访问资源了
+GET http://localhost:8081/user/zhangsan
+Accept: application/json
+Authorization: Bearer d495a7e4-4745-4bf4-89d7-ebd6b33b4b78
+###
+
+#正常流程应该是：
+##8081点击授权登录，
+##跳转到授权服务器8080步骤#1，输入密码，
+##回调8081步骤#2，
+##回调接口拿到code，后台发请求步骤#3获取token，存token，写cookie,跳转到首页
+##每次请求带上access token，并且自动到授权服务器check_token，通过后，才能访问资源

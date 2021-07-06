@@ -1,0 +1,9 @@
+#1、获取token
+POST http://localhost:8080/oauth/token?username=test&password=123456&grant_type=password&client_id=password_auth_mode&client_secret=123456
+Content-Type: application/json
+###
+#2、带上access token就可以访问资源了
+GET http://localhost:8081/user/zhangsan
+Accept: application/json
+Authorization: Bearer 06e4cc09-eefe-4748-ba13-e04d9c744998
+###

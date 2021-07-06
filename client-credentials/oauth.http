@@ -1,0 +1,7 @@
+#POST http://localhost:8080/oauth/token?grant_type=client_credentials&client_id=password_auth_mode&client_secret=123456
+GET http://localhost:8082/user
+###
+
+#1、client访问resource-server，请求前，先获取access token，放header
+#2、resource-server收到请求，先在auth-server check_token
+#3、验证通过，访问资源，返回数据
