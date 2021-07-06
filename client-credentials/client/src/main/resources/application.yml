@@ -1,0 +1,9 @@
+server:
+  port: 8082
+feign:
+  okhttp:
+    enabled: true
+uaa:
+  clientId: password_auth_mode
+  clientSecret: 123456
+  tokenEndpoint: http://localhost:8080/oauth/token
